@@ -75,6 +75,10 @@ If you'd like to contribute to the MBook Console, please follow these steps:
 4. Push your changes to your fork.
 5. Create a pull request to the main repository.
 
+### Authors
+
+Michael Amuah - [Github](https://github.com/maneida) / [Twitter](https://twitter.com/kayku_d)  
+
 ### License
 
 This project is licensed under the [MIT License](LICENSE).

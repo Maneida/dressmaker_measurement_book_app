@@ -54,3 +54,5 @@ build/
 
 # File storage
 file.json
+requirements.txt
+create.py
