@@ -1,0 +1,56 @@
+# Ignore Python cache files
+__pycache__/
+
+# Ignore environment-specific files
+.env
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore logs and databases
+*.log
+*.sqlite
+
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore virtual environment
+venv/
+
+# Ignore local configuration
+config/local_settings.py
+
+# Ignore user-specific files
+*.DS_Store
+Thumbs.db
+
+# Ignore generated files
+*.mo
+*.pot
+*.pyc
+
+# Ignore API keys and sensitive information
+config/secrets.ini
+
+# Ignore documentation files
+docs/
+
+# Ignore package files
+*.egg-info/
+dist/
+build/
+
+# Ignore temporary files
+*.swp
+*~
+
+# File storage
+file.json
