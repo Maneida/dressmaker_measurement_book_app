@@ -15,7 +15,7 @@ The MBook Console is a command-line interface (CLI) designed to interact with th
 
 1. Clone the repository to your local machine:
 
-    `git clone https://github.com/yourusername/mbook-console.git`
+    `git clone https://github.com/Maneida/dressmaker_measurement_book_app.git`
 
 2. Navigate to the project directory:
 
