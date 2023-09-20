@@ -7,11 +7,13 @@ from datetime import datetime
 import models
 from models.base_model import BaseModel
 from models.customer import Customer
+from models.template import Template
 from models.user import User
 import shlex
 import argparse
 
-classes = {"BaseModel": BaseModel, "Customer": Customer, "User": User}
+classes = {"BaseModel": BaseModel, "Customer": Customer, "User": User,
+           "Template": Template}
 
 class MBookCommand(cmd.Cmd):
     """MBook console class"""
@@ -57,17 +59,20 @@ class MBookCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates a new instance of a class"""
         args = arg.split()
-        if len(args) == 0:
-            print("** class name missing **")
-            return False
-        if args[0] in classes:
-            new_dict = self._key_value_parser(args[1:])
-            instance = classes[args[0]](**new_dict)
-        else:
-            print("** class doesn't exist **")
-            return False
-        print(instance.id)
-        instance.save()
+        try:
+            if len(args) == 0:
+                print("** class name missing **")
+                return False
+            if args[0] in classes:
+                new_dict = self._key_value_parser(args[1:])
+                instance = classes[args[0]](**new_dict)
+            else:
+                print("** class doesn't exist **")
+                return False
+            print(instance.id)
+            instance.save()
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
     def do_show(self, arg):
         """Prints an instance as a string based on the class and id"""
@@ -212,4 +217,9 @@ class MBookCommand(cmd.Cmd):
         print(f"Number of instances of {class_name}: {count}")
 
 if __name__ == '__main__':
-    MBookCommand().cmdloop()
+    # MBookCommand().cmdloop()
+    try:
+        MBookCommand().cmdloop()
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        traceback.print_exc()

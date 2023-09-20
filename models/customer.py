@@ -1,5 +1,6 @@
 import models
 from models.base_model import BaseModel
+from models.template import Template
 from models.user import User
 
 class Customer(BaseModel):
@@ -26,13 +27,13 @@ class Customer(BaseModel):
         self.surname = ""
         self.phone_number = ""
         self.measurements = {}
-        default_list = ['Bust', 'Waist', 'Hip', 'Shoulder to Nipple',
+        default_list = ['Bust', 'Waist', 'Hips', 'Shoulder to Nipple',
                         'Shoulder to Waist', 'Shoulder to Hip',
                         'Nipple to Nipple', 'Sleeve Length', 'Around Arm',
                         'Across Back']
+        # list should be equal to measurement_list of template
 
-        for i in default_list:
-            self.measurements[i] = None
+        self.measurements = {field: None for field in default_list}
 
     def get_measurement(self, key):
         return self.measurements.get(key)

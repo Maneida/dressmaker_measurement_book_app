@@ -7,9 +7,11 @@ import json
 import models
 from models.base_model import BaseModel
 from models.customer import Customer
+from models.template import Template
 from models.user import User
 
-classes = {"BaseModel": BaseModel, "Customer": Customer, "User": User}
+classes = {"BaseModel": BaseModel, "Customer": Customer, "User": User,
+           "Template": Template}
 
 
 class FileStorage:
@@ -56,7 +58,7 @@ class FileStorage:
             # with open(self.__file_path, 'w') as f:
             #     json.dump({}, f)
         except Exception as e:
-            print("Error: {}".format(e))
+             print("Error: {}".format(e))
 
     def delete(self, obj=None):
         """delete obj from __objects if it’s inside"""
