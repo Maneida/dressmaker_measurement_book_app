@@ -54,6 +54,9 @@ class BaseModel:
         new_dict["__class__"] = self.__class__.__name__
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
+        for attr_name, attr_value in new_dict.items():
+            if hasattr(attr_value, 'to_dict') and callable(attr_value.to_dict):
+                new_dict[attr_name] = attr_value.to_dict()
         return new_dict
 
     def delete(self):
